@@ -1,0 +1,17 @@
+[
+  {
+    "name": "happy-path-routing",
+    "prompt": "Use `conversation-skill-auditor` for this documented task: local conversation audit.",
+    "expected": "Triggers `conversation-skill-auditor`, follows its SKILL.md workflow, and returns the documented output shape without inventing unrelated scope."
+  },
+  {
+    "name": "non-trigger-boundary",
+    "prompt": "This is unrelated to `conversation-skill-auditor`: explain a generic Python syntax error in a toy snippet.",
+    "expected": "Does not trigger `conversation-skill-auditor` and routes to the ordinary coding or explanation path instead."
+  },
+  {
+    "name": "owner-overlap-routing",
+    "prompt": "The request partially overlaps `conversation-skill-auditor` and an adjacent owner workflow; decide which owner should handle it before acting.",
+    "expected": "Checks owner boundaries first, uses `conversation-skill-auditor` only for its documented surface, and routes adjacent work to the better owner when needed."
+  }
+]
